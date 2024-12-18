@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\SeninApi.Application\SeninApi.Application.csproj" />
     <ProjectReference Include="..\..\Core\SeninApi.Domain\SeninApi.Domain.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SeninApi.Application.Interfaces.Repositories;
 using SeninApi.Persistence.Context;
 
 namespace SeninApi.Persistence
@@ -11,6 +12,8 @@ namespace SeninApi.Persistence
         {
             services.AddDbContext<AppDbContext>(opt =>
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IReadRepository<>), typeof(IReadRepository<>));
         }
     }
 }
