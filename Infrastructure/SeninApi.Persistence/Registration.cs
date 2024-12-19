@@ -14,6 +14,7 @@ namespace SeninApi.Persistence
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped(typeof(IReadRepository<>), typeof(IReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(IWriteRepository<>));
         }
     }
 }
