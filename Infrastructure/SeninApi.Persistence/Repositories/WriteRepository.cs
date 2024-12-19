@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeninApi.Persistence.Repositories
 {
-    public class WriteRepository<T> : IWriteRepository<T>, where T : class, IEntityBase, new()
+    public class WriteRepository<T> : IWriteRepository<T> where T : class, IEntityBase, new()
     {
         private readonly DbContext dbContext;
 

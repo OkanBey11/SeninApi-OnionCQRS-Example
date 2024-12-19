@@ -2,7 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeninApi.Application.Interfaces.Repositories;
+using SeninApi.Application.Interfaces.UnitOfWorks;
 using SeninApi.Persistence.Context;
+using SeninApi.Persistence.Repositories;
+using SeninApi.Persistence.UnitOfWorks;
 
 namespace SeninApi.Persistence
 {
@@ -13,8 +16,10 @@ namespace SeninApi.Persistence
             services.AddDbContext<AppDbContext>(opt =>
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped(typeof(IReadRepository<>), typeof(IReadRepository<>));
-            services.AddScoped(typeof(IWriteRepository<>), typeof(IWriteRepository<>));
+            services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
