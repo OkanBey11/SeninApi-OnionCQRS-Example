@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\SeninApi.Persistence\SeninApi.Persistence.csproj" />
+    <ProjectReference Include="..\..\SeninApi.Mapper\SeninApi.Mapper.csproj" />
   </ItemGroup>
 
 </Project>
