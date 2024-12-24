@@ -12,8 +12,8 @@ using SeninApi.Persistence.Context;
 namespace SeninApi.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241218132352_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241224075310_Update1")]
+    partial class Update1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace SeninApi.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("SeninApi.Domain.Entities.Brand", b =>
                 {
@@ -67,23 +52,23 @@ namespace SeninApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(2987),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7389),
                             IsDeleted = false,
-                            Name = "Toys & Beauty"
+                            Name = "Electronics, Clothing & Toys"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(3563),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7700),
                             IsDeleted = false,
-                            Name = "Garden, Shoes & Home"
+                            Name = "Outdoors"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(3570),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7769),
                             IsDeleted = true,
-                            Name = "Computers"
+                            Name = "Movies & Outdoors"
                         });
                 });
 
@@ -119,7 +104,7 @@ namespace SeninApi.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1651),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6372),
                             IsDeleted = false,
                             Name = "Elektronik",
                             ParentId = 0,
@@ -128,7 +113,7 @@ namespace SeninApi.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1653),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6376),
                             IsDeleted = false,
                             Name = "Moda",
                             ParentId = 0,
@@ -137,7 +122,7 @@ namespace SeninApi.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1655),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6377),
                             IsDeleted = false,
                             Name = "Bilgisayar",
                             ParentId = 1,
@@ -146,7 +131,7 @@ namespace SeninApi.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1656),
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6379),
                             IsDeleted = false,
                             Name = "Kadın",
                             ParentId = 2,
@@ -190,28 +175,28 @@ namespace SeninApi.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3428),
-                            Description = "Ut eum quia sed doğru.",
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(393),
+                            Description = "Perferendis koşuyorlar ad cesurca türemiş.",
                             IsDeleted = false,
-                            Title = "Aliquid."
+                            Title = "Alias."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3475),
-                            Description = "Filmini amet yapacakmış sevindi deleniti.",
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(441),
+                            Description = "Laboriosam sevindi exercitationem oldular ex.",
                             IsDeleted = true,
-                            Title = "Sunt lakin."
+                            Title = "Nesciunt dicta."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3500),
-                            Description = "Dolores quia ekşili salladı nemo.",
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(484),
+                            Description = "Voluptatum ex orta de veniam.",
                             IsDeleted = false,
-                            Title = "Sit."
+                            Title = "Ut."
                         });
                 });
 
@@ -257,39 +242,39 @@ namespace SeninApi.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 92, DateTimeKind.Local).AddTicks(6842),
-                            Description = "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-                            Discount = 0.9348371790173540m,
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 395, DateTimeKind.Local).AddTicks(7270),
+                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+                            Discount = 0.6790877731642790m,
                             IsDeleted = false,
-                            Price = 978.10m,
-                            Title = "Handcrafted Metal Mouse"
+                            Price = 521.97m,
+                            Title = "Intelligent Granite Chair"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreatedDate = new DateTime(2024, 12, 18, 16, 23, 48, 92, DateTimeKind.Local).AddTicks(6945),
-                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-                            Discount = 5.026633575521890m,
+                            CreatedDate = new DateTime(2024, 12, 24, 10, 53, 8, 395, DateTimeKind.Local).AddTicks(7351),
+                            Description = "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+                            Discount = 2.887539790526350m,
                             IsDeleted = false,
-                            Price = 231.96m,
-                            Title = "Rustic Steel Cheese"
+                            Price = 208.04m,
+                            Title = "Ergonomic Wooden Hat"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("SeninApi.Domain.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("SeninApi.Domain.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.HasOne("SeninApi.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("SeninApi.Domain.Entities.Detail", b =>
@@ -314,9 +299,35 @@ namespace SeninApi.Persistence.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("SeninApi.Domain.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("SeninApi.Domain.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SeninApi.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("SeninApi.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("SeninApi.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SeninApi.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Update1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,24 +94,24 @@ namespace SeninApi.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryProduct",
+                name: "ProductCategories",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
+                        name: "FK_ProductCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
+                        name: "FK_ProductCategories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -122,9 +122,9 @@ namespace SeninApi.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(2987), false, "Toys & Beauty" },
-                    { 2, new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(3563), false, "Garden, Shoes & Home" },
-                    { 3, new DateTime(2024, 12, 18, 16, 23, 48, 80, DateTimeKind.Local).AddTicks(3570), true, "Computers" }
+                    { 1, new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7389), false, "Electronics, Clothing & Toys" },
+                    { 2, new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7700), false, "Outdoors" },
+                    { 3, new DateTime(2024, 12, 24, 10, 53, 8, 380, DateTimeKind.Local).AddTicks(7769), true, "Movies & Outdoors" }
                 });
 
             migrationBuilder.InsertData(
@@ -132,10 +132,10 @@ namespace SeninApi.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name", "ParentId", "Priorty" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1651), false, "Elektronik", 0, 1 },
-                    { 2, new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1653), false, "Moda", 0, 2 },
-                    { 3, new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1655), false, "Bilgisayar", 1, 1 },
-                    { 4, new DateTime(2024, 12, 18, 16, 23, 48, 81, DateTimeKind.Local).AddTicks(1656), false, "Kadın", 2, 1 }
+                    { 1, new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6372), false, "Elektronik", 0, 1 },
+                    { 2, new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6376), false, "Moda", 0, 2 },
+                    { 3, new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6377), false, "Bilgisayar", 1, 1 },
+                    { 4, new DateTime(2024, 12, 24, 10, 53, 8, 381, DateTimeKind.Local).AddTicks(6379), false, "Kadın", 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -143,9 +143,9 @@ namespace SeninApi.Persistence.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Description", "IsDeleted", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3428), "Ut eum quia sed doğru.", false, "Aliquid." },
-                    { 2, 3, new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3475), "Filmini amet yapacakmış sevindi deleniti.", true, "Sunt lakin." },
-                    { 3, 4, new DateTime(2024, 12, 18, 16, 23, 48, 90, DateTimeKind.Local).AddTicks(3500), "Dolores quia ekşili salladı nemo.", false, "Sit." }
+                    { 1, 1, new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(393), "Perferendis koşuyorlar ad cesurca türemiş.", false, "Alias." },
+                    { 2, 3, new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(441), "Laboriosam sevindi exercitationem oldular ex.", true, "Nesciunt dicta." },
+                    { 3, 4, new DateTime(2024, 12, 24, 10, 53, 8, 389, DateTimeKind.Local).AddTicks(484), "Voluptatum ex orta de veniam.", false, "Ut." }
                 });
 
             migrationBuilder.InsertData(
@@ -153,18 +153,18 @@ namespace SeninApi.Persistence.Migrations
                 columns: new[] { "Id", "BrandId", "CreatedDate", "Description", "Discount", "IsDeleted", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 12, 18, 16, 23, 48, 92, DateTimeKind.Local).AddTicks(6842), "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design", 0.9348371790173540m, false, 978.10m, "Handcrafted Metal Mouse" },
-                    { 2, 3, new DateTime(2024, 12, 18, 16, 23, 48, 92, DateTimeKind.Local).AddTicks(6945), "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients", 5.026633575521890m, false, 231.96m, "Rustic Steel Cheese" }
+                    { 1, 1, new DateTime(2024, 12, 24, 10, 53, 8, 395, DateTimeKind.Local).AddTicks(7270), "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals", 0.6790877731642790m, false, 521.97m, "Intelligent Granite Chair" },
+                    { 2, 3, new DateTime(2024, 12, 24, 10, 53, 8, 395, DateTimeKind.Local).AddTicks(7351), "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016", 2.887539790526350m, false, 208.04m, "Ergonomic Wooden Hat" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
-                column: "ProductsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Details_CategoryId",
                 table: "Details",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_CategoryId",
+                table: "ProductCategories",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -177,16 +177,16 @@ namespace SeninApi.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
-
-            migrationBuilder.DropTable(
                 name: "Details");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "ProductCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Brands");

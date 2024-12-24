@@ -22,6 +22,8 @@ namespace SeninApi.Application.Features.Products.Queries.GetAllProducts
         {
             var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(b => b.Brand));
 
+            var brand = mapper.Map<BrandDto, Brand>(new Brand());
+
             var map = mapper.Map<GetAllProductsQueryResponse, Product>(products);
             foreach (var item in map)
                 item.Price -= (item.Price * item.Discount / 100);

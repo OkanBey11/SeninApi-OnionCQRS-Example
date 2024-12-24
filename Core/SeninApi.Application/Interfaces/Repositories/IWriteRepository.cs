@@ -14,6 +14,7 @@ namespace SeninApi.Application.Interfaces.Repositories
         Task<T> UpdateAsync(T entity);
         Task HardDeleteAsync(T entity);
         // Veriyi tamamen silmek bazen mantıksız olabiliyor bu gibi durumlarda bool isDelated = True yapılabiliniyor.
+        Task HardDeleteRangeAsync(IList<T> entities);
 
     }
 }

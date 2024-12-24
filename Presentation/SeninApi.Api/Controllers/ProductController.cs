@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SeninApi.Application.Features.Products.Command.CreateProduct;
+using SeninApi.Application.Features.Products.Command.DeleteProduct;
+using SeninApi.Application.Features.Products.Command.UpdateProduct;
 using SeninApi.Application.Features.Products.Queries.GetAllProducts;
 
 namespace SeninApi.Api.Controllers
@@ -22,6 +25,27 @@ namespace SeninApi.Api.Controllers
             var response = await mediator.Send(new GetAllProductsQueryRequest());
 
             return Ok(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(CreateProductCommanRequest request)
+        {
+            await mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
+        {
+            await mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
+        {
+            await mediator.Send(request);
+            return Ok();
         }
     }
 }
