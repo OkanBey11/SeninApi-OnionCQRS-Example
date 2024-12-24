@@ -1,6 +1,7 @@
 using SeninApi.Persistence;
 using SeninApi.Application;
 using SeninApi.Mapper;
+using SeninApi.Application.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 }
 
+app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();

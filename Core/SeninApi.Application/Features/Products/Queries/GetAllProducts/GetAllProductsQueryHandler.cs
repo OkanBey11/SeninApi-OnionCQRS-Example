@@ -29,6 +29,8 @@ namespace SeninApi.Application.Features.Products.Queries.GetAllProducts
                 item.Price -= (item.Price * item.Discount / 100);
 
             return map;
+            // hata mesajı testi için burda
+            throw new Exception("hata mesaji");
         }
     }
 }
