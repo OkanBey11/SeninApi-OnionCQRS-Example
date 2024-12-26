@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeninApi.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommanRequest : IRequest
+    public class CreateProductCommanRequest : IRequest<Unit>
     {
         public string Title { get; set; }
         public string Description { get; set; }

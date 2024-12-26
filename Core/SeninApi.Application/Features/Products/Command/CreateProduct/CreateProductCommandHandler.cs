@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeninApi.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommanRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommanRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
         public CreateProductCommandHandler(IUnitOfWork unitOfWork)
@@ -17,7 +17,7 @@ namespace SeninApi.Application.Features.Products.Command.CreateProduct
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateProductCommanRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommanRequest request, CancellationToken cancellationToken)
         {
             Product product = new(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
 
@@ -34,6 +34,8 @@ namespace SeninApi.Application.Features.Products.Command.CreateProduct
 
                 await unitOfWork.SaveAsync();
             }
+
+            return Unit.Value;
         }
     }
 }

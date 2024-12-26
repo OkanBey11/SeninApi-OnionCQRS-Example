@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SeninApi.Application.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using FluentValidation;
+using System.Globalization;
+using MediatR;
+using SeninApi.Application.Beheviors;
+
 
 namespace SeninApi.Application
 {
@@ -16,7 +16,14 @@ namespace SeninApi.Application
             var assembly = Assembly.GetExecutingAssembly();
 
             services.AddTransient<ExceptionMiddleware>();
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+
+            services.AddValidatorsFromAssembly(assembly);
+            ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr");
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevivor<,>));
+
         }
     }
 }
