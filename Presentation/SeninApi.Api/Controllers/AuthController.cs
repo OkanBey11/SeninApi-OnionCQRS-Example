@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using SeninApi.Application.Features.Auth.Command.Login;
 using SeninApi.Application.Features.Auth.Command.RefreshToken;
 using SeninApi.Application.Features.Auth.Command.Register;
+using SeninApi.Application.Features.Auth.Command.Revoke;
+using SeninApi.Application.Features.Auth.Command.RevokeAll;
 
 namespace SeninApi.Api.Controllers
 {
@@ -37,6 +39,20 @@ namespace SeninApi.Api.Controllers
         {
             var response = await mediator.Send(request);
             return StatusCode(StatusCodes.Status200OK, response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Revoke(RevokeCommandRequest request)
+        {
+            await mediator.Send(request);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RevokeAll()
+        {
+            await mediator.Send(new RevokeAllCommandRequest());
+            return StatusCode(StatusCodes.Status200OK);
         }
     }
 }
