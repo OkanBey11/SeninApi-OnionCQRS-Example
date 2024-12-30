@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeninApi.Application.Features.Products.Exceptions
+namespace SeninApi.Application.Features.Auth.Exceptions
 {
     public class UserAlreadyExistException : BaseExceptions
     {
         public UserAlreadyExistException() : base("Böyle bir kullanıcı zaten var !")
         {
-            
+
         }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using SeninApi.Application.Bases;
-using SeninApi.Application.Features.Products.Rules;
+using SeninApi.Application.Features.Auth.Rules;
 using SeninApi.Application.Interfaces.AutoMapper;
 using SeninApi.Application.Interfaces.UnitOfWorks;
 using SeninApi.Domain.Entities;
