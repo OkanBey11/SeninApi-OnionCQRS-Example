@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SeninApi.Application.Features.Auth.Command.Login;
+using SeninApi.Application.Features.Auth.Command.RefreshToken;
 using SeninApi.Application.Features.Auth.Command.Register;
 
 namespace SeninApi.Api.Controllers
@@ -26,6 +27,13 @@ namespace SeninApi.Api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginCommandRequest request)
+        {
+            var response = await mediator.Send(request);
+            return StatusCode(StatusCodes.Status200OK, response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RefreshToken(RefreshTokenCommandRequest request)
         {
             var response = await mediator.Send(request);
             return StatusCode(StatusCodes.Status200OK, response);
