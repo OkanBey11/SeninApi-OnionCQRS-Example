@@ -20,4 +20,10 @@
     <ProjectReference Include="..\SeninApi.Domain\SeninApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\Exceptions\" />
+    <Folder Include="Features\Auth\Rules\" />
+    <Folder Include="Features\Auth\Queries\" />
+  </ItemGroup>
+
 </Project>
