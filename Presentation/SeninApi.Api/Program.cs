@@ -4,6 +4,8 @@ using SeninApi.Mapper;
 using SeninApi.Application.Exceptions;
 using SeninApi.Infrastructure;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Configuration;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
 var env = builder.Environment;
 

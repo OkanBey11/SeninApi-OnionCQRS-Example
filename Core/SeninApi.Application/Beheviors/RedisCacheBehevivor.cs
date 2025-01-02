@@ -1,11 +1,6 @@
-﻿using FluentValidation;
-using MediatR;
+﻿using MediatR;
 using SeninApi.Application.Interfaces.RedisCache;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SeninApi.Application.Beheviors
 {

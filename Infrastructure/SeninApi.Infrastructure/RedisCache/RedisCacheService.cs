@@ -10,8 +10,7 @@ namespace SeninApi.Infrastructure.RedisCache
         private readonly ConnectionMultiplexer redisConnection;
         private readonly IDatabase database;
         private readonly RedisCacheSettings settings;
-
-        public RedisCacheService(IOptions<RedisCacheSettings> options,ConnectionMultiplexer redisConnection, IDatabase database, RedisCacheSettings settings)
+        public RedisCacheService(IOptions<RedisCacheSettings> options)
         {
             settings = options.Value;
             var opt = ConfigurationOptions.Parse(settings.ConnectionString);
@@ -27,9 +26,9 @@ namespace SeninApi.Infrastructure.RedisCache
             return default;
         }
 
-        public async Task SetAsync<T>(string key, T value, DateTime? exprationTime = null)
+        public async Task SetAsync<T>(string key, T value, DateTime? expirationTime = null)
         {
-            TimeSpan timeUnitExpiration = exprationTime.Value - DateTime.Now;
+            TimeSpan timeUnitExpiration = expirationTime.Value - DateTime.Now;
             await database.StringSetAsync(key, JsonConvert.SerializeObject(value), timeUnitExpiration);
         }
     }
